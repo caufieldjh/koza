@@ -10,10 +10,11 @@ row = inject_row(source_name)
 translation_table = inject_translation_table()
 entrez_2_string = inject_map('entrez_2_string')
 
-gene_a = Gene(id='NCBIGene:' + entrez_2_string[row['protein1']]['entrez'])
-gene_b = Gene(id='NCBIGene:' + entrez_2_string[row['protein2']]['entrez'])
+gene_a = Gene(category="biolink:Gene", id='NCBIGene:' + entrez_2_string[row['protein1']]['entrez'])
+gene_b = Gene(category="biolink:Gene", id='NCBIGene:' + entrez_2_string[row['protein2']]['entrez'])
 
 pairwise_gene_to_gene_interaction = PairwiseGeneToGeneInteraction(
+    category="biolink:PairwiseGeneToGeneInteraction",
     id="uuid:" + str(uuid.uuid1()),
     subject=gene_a.id,
     object=gene_b.id,

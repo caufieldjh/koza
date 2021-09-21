@@ -10,8 +10,8 @@ source_name = 'protein-links-detailed'
 row = inject_row(source_name)
 translation_table = inject_translation_table()
 
-protein_a = Protein(id='ENSEMBL:' + re.sub(r'\d+\.', '', row['protein1']), category="biolink:Protein")
-protein_b = Protein(id='ENSEMBL:' + re.sub(r'\d+\.', '', row['protein2']), category="biolink:Protein")
+protein_a = Protein(category="biolink:Protein", id='ENSEMBL:' + re.sub(r'\d+\.', '', row['protein1']))
+protein_b = Protein(category="biolink:Protein", id='ENSEMBL:' + re.sub(r'\d+\.', '', row['protein2']))
 
 pairwise_gene_to_gene_interaction = PairwiseGeneToGeneInteraction(
     category="biolink:PairwiseGeneToGeneInteraction",

@@ -9,9 +9,9 @@ source_name = 'gene-to-phenotype'
 
 row = inject_row(source_name)
 
-gene = Gene(id='Xenbase:' + row['SUBJECT'], category="biolink:Gene")
+gene = Gene(category="biolink:Gene", id='Xenbase:' + row['SUBJECT'])
 
-phenotype = PhenotypicFeature(id=row['OBJECT'], category="biolink:PhenotypicFeature")
+phenotype = PhenotypicFeature(category="biolink:PhenotypicFeature", id=row['OBJECT'])
 
 association = GeneToPhenotypicFeatureAssociation(
     category="biolink:GeneToPhenotypicFeatureAssociation",

@@ -18,6 +18,7 @@ entities = []
 gene_pages = row['gene_pages']
 
 publication = Publication(
+    category="biolink:Publication",
     id='PMID:' + row['pmid'],
     type=translation_table.resolve_term("publication")
 )
@@ -32,16 +33,16 @@ for gene_page in gene_pages.split(','):
         LOG.debug(f"Could not locate genepage_id: {gene_page_id} in row {row}")
         continue
     for gene_id in gene_ids:
-        gene = Gene(id=gene_id)
+        gene = Gene(category="biolink:Gene", id=gene_id)
 
         entities.append(gene)
 
         association = NamedThingToInformationContentEntityAssociation(
             category="biolink:NamedThingToInformationContentEntityAssociation",
             id="uuid:" + str(uuid.uuid1()),
-            subject=gene.id,
+            subject=gene,
             predicate="biolink:mentions",
-            object=publication.id,
+            object=publication,
             relation="IAO:0000142"  # Mentions
         )
 
