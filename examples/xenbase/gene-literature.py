@@ -3,7 +3,7 @@ import uuid
 
 from koza.manager.data_provider import inject_row, inject_map, inject_translation_table
 from koza.manager.data_collector import write
-from biolink_model_pydantic.model import Publication, Gene, NamedThingToInformationContentEntityAssociation, Predicate
+from koza.biolink.model import Publication, Gene, NamedThingToInformationContentEntityAssociation
 
 LOG = logging.getLogger(__name__)
 
@@ -37,9 +37,10 @@ for gene_page in gene_pages.split(','):
         entities.append(gene)
 
         association = NamedThingToInformationContentEntityAssociation(
+            category="biolink:NamedThingToInformationContentEntityAssociation",
             id="uuid:" + str(uuid.uuid1()),
             subject=gene.id,
-            predicate=Predicate.mentions,
+            predicate="biolink:mentions",
             object=publication.id,
             relation="IAO:0000142"  # Mentions
         )

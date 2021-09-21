@@ -1,6 +1,6 @@
 from typing import List
 
-from biolink_model_pydantic.model import Entity
+from koza.biolink.model import Entity
 from kgx.sink.tsv_sink import TsvSink
 
 from koza.converter.kgx_converter import KGXConverter

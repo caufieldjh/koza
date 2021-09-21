@@ -1,7 +1,7 @@
 import re
 import uuid
 
-from biolink_model_pydantic.model import Protein, PairwiseGeneToGeneInteraction, Predicate
+from koza.biolink.model import Protein, PairwiseGeneToGeneInteraction
 from koza.manager.data_collector import write
 
 from koza.koza_runner import get_koza_app
@@ -22,7 +22,7 @@ for row in koza.file_registry[source_name]:
         id="uuid:" + str(uuid.uuid1()),
         subject=protein_a.id,
         object=protein_b.id,
-        predicate=Predicate.interacts_with,
+        predicate="biolink:interacts_with",
         relation = translation_table.global_table['interacts with'],
     )
 

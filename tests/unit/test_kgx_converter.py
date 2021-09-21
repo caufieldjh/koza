@@ -1,5 +1,5 @@
 import pytest
-from biolink_model_pydantic.model import Curie, Gene, GeneToGeneAssociation, Predicate, Publication
+from koza.biolink.model import Curie, Gene, GeneToGeneAssociationkoza.biolink.model, Publication
 
 from koza.converter.kgx_converter import KGXConverter
 

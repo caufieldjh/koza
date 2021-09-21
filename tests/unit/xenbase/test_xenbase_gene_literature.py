@@ -1,5 +1,5 @@
 import pytest
-from biolink_model_pydantic.model import (
+from koza.biolink.model import (
     Gene,
     NamedThingToInformationContentEntityAssociation,
     Publication,

@@ -3,7 +3,7 @@ import os
 from dataclasses import asdict
 from typing import List
 
-from biolink_model_pydantic.model import Association, Entity, NamedThing
+from koza.biolink.model import Association, Entity, NamedThing
 
 from koza.io.writer.writer import KozaWriter
 
