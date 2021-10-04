@@ -126,7 +126,7 @@ class DatasetDescription:
 
 @dataclass(config=PydanticConfig)
 class SourceConfig:
-    source_files: List[str]
+    source_files: List[""]
     name: str = None
     output_format: OutputFormat = None
     dataset_description: DatasetDescription = None
